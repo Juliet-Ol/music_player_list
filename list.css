@@ -24,7 +24,6 @@ header{
     overflow: hidden;
 
 }
-
 header .menu_part, .song_part {
     position: relative;
     width: 25%;
@@ -34,7 +33,6 @@ header .menu_part, .song_part {
     box-shadow: 5px 0px 2px rgb(23, 98, 167, .1);
     color: #fff;
 }
-
 header .song_part {
     width: 75%;
     background-color: #202027;
@@ -63,17 +61,17 @@ header .menu_part h4{
     padding-bottom: 10px;
     color: grey;
     cursor: pointer;
+    display: flex;
+    align-items: center;
     transition: .3s linear;
 }
-
 header .menu_part h4:hover{
     color: #fff;
 }
-
 header .menu_part h4 span{
     position: relative;
+    margin-right: 35px;
 }
-
 header .menu_part h4 span::before{
     content: '';
     position: absolute;
@@ -81,4 +79,67 @@ header .menu_part h4 span::before{
     height: 4px;
     border: 2px solid #4c5262;
     border-radius: 50%;
+    top: -4px;
+    transition: .3s linear;
+}
+header .menu_part .playlist h4:hover span::before{    
+    border: 2px solid #4c5262;
+}
+
+header .menu_part .playlist h4 .bi{    
+    display: none;
+}
+header .menu_part .playlist .active{    
+    color: rgb(23, 98,167);
+}
+header .menu_part .playlist .active span{    
+    display: none;
+}
+header .menu_part .playlist .active .bi{    
+    display: flex;
+    margin-top: 20px;
+}
+header .menu_part .menu_song{
+    width: 100%;
+    height: 320px;
+    border: 1px solid #fff;
+    margin-top: 40px;
+}
+
+header .menu_part .menu_song li{
+    position: relative;
+    list-style: none;
+    padding: 5px 0px 5px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+header .menu_part .menu_song li:hover{
+   background: grey;
+}
+header .menu_part .menu_song li span{
+    font-size: 12px;
+    font-weight: bolder;
+    color: #4c5262;
+}
+header .menu_part .menu_song li img{
+    width: 32px;
+    height: 32px;
+    margin-left: 25px;
+}
+header .menu_part .menu_song li h5{
+    font-size: 11px;
+    margin-left: 15px;
+}
+header .menu_part .menu_song li h5 .subtitle{
+    font-size: 9px;
+    color: #4c5262;
+}
+header .menu_part .menu_song .bi{
+    position: absolute;
+    right: 15px;
+    top: 6px;
+    font-size: 16px;
 }
