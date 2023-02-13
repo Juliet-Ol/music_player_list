@@ -20,6 +20,8 @@ header{
     height: 95%;
     border: 1px solid #fff;
     display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
 
 }
 
@@ -38,3 +40,45 @@ header .song_part {
     background-color: #202027;
 }
 
+header .master_play{
+    width: 100%;
+    height: 10%;
+    background-color: #202030;
+    box-shadow: 0% 3px 8px #090f1f;
+}
+
+header .menu_part h1{
+    font-size: 20px;
+    margin: 15px 0px 0px 20px;
+    font-weight: bolder;
+}
+
+header .menu_part .playlist {
+    margin: 40px 0px 0px 20px;
+}
+
+header .menu_part h4{
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    color: grey;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+header .menu_part h4:hover{
+    color: #fff;
+}
+
+header .menu_part h4 span{
+    position: relative;
+}
+
+header .menu_part h4 span::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid #4c5262;
+    border-radius: 50%;
+}
