@@ -157,6 +157,7 @@ header .master_play .wave{
     padding-bottom: 5px;
     display: flex;
     align-items: flex-end;
+    margin-right: 10px;
 }
 header .master_play .wave .wave1{
     width: 3px;
@@ -183,7 +184,6 @@ header .master_play .active2 .wave1:nth-child(2){
     animation-delay: .4s;   
 }
 header .master_play .active2 .wave1:nth-child(3){
-    
     animation-delay: .8s; 
 }
 @keyframes wave {
@@ -197,3 +197,45 @@ header .master_play .active2 .wave1:nth-child(3){
         height: 10px;
     }
 }
+
+header .master_play img{
+    width: 35px;
+    height: 35px;
+}
+header .master_play h5{
+    width: 130px;
+    font-size: 14px;
+    margin-left: 15px;
+    color: #fff;
+    line-height: 15px;
+}
+header .master_play h5 .subtitle{    
+    font-size: 11px;
+    color: #4c5262;    
+}
+header .master_play .icon{    
+    font-size: 20px;
+    color: #fff;    
+    margin: 0px 20px 0px 40px;
+}
+header .master_play .icon .bi{    
+    cursor: pointer;
+    outline: none;
+}
+header .master_play .icon .bi:nth-child(2){    
+    border: rgb(23, 98, 167, .1);
+    border-radius: 50%;
+    padding: 1px 3px 0px 6px;
+    margin: 0px 5px;
+    transition: .3s linear;
+}
+header .master_play span {
+    color: #fff;
+    width: 32px;
+    font-size: 11px;
+    font-weight: 400;
+}
+header .master_play #currentStart{
+    margin: 0px 0px 0px 20px;
+}
+header .master_play .bar{}
