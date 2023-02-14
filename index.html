@@ -67,11 +67,24 @@
                         <!-- <i class="bi playlistPlay bi-play-circle-fill" id="6"></i> -->
                     </h5>
                     <i class="bi playlistPlay bi-play-circle-fill" id="6"></i>
-            </h5>
+           
                 </li>
             </div>
         </div>
-        <div class="song_part"></div>
+        <div class="song_part">
+            <nav>
+                <ul>
+                    <li> Discover <span></span></li>
+                    <li>My Library</li>
+                    <li>Rad</li>
+                </ul>
+                <div class="search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search for music...">
+                </div>
+            </nav>
+            
+        </div>
         <div class="master_play">
             <div class="wave">
                 <div class="wave1"></div>
@@ -94,6 +107,12 @@
                 <div class="dot"></div>
             </div>
             <span id="currentEnd">0:00</span>
+            <div class="vol">
+                <i class="bi bi-volume-down-fill"></i>
+                <input type="range" id="vol" min="0" value="30" max="100">
+                <div class="vol_bar"></div>
+                <div class="dot" id="vol_dot"></div>
+            </div>
                 
         </div>
     </header>
