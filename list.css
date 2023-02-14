@@ -164,17 +164,28 @@ header .master_play .wave .wave1{
     margin-right: 3px;
     border-radius: 10px 10px 0px 0px;
     background: #090f1f;
-    animation: wave .5s linear infinite;
+    animation: unset;
 }
 header .master_play .wave .wave1:nth-child(2){
     height: 13px;  
-    animation-delay: .4s;   
+    /* animation-delay: .4s;    */
 }
 header .master_play .wave .wave1:nth-child(3){
     height: 8px; 
-    animation-delay: .8s;     
+    /* animation-delay: .8s;      */
 }
 /* javascript class wave */
+header .master_play .active2 .wave1{    
+    animation: wave .5s linear infinite;
+}
+header .master_play .active2 .wave1:nth-child(2){
+     
+    animation-delay: .4s;   
+}
+header .master_play .active2 .wave1:nth-child(3){
+    
+    animation-delay: .8s; 
+}
 @keyframes wave {
     0%{
         height: 10px;
