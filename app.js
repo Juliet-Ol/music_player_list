@@ -58,3 +58,14 @@ masterPlay.addEventListener('click',()=>{
         wave.classList.remove('active2');
     }
 })
+
+let index = 0;
+
+Array.from(document.getElementsByClassName('playlistPlay')).forEach((element, i)=>{
+    element.addEventListener('click', (e)=>{
+        index = e.target.id;
+        e.target.classList.remove('bi-play-circle-fill')
+        e.target.classList.add('bi-pause-circle-fill')
+
+    })
+})
