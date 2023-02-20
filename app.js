@@ -1,7 +1,7 @@
 const music = new Audio('fallingdown.mp3');
 // music.play();
 
-// music/Bruno_Mars_Super_Bowl_2014_Just_The_Way_You_Ar.mp3
+
 
 // create Array
 
@@ -59,13 +59,25 @@ masterPlay.addEventListener('click',()=>{
     }
 })
 
+const makeAllPlays = () =>{    
+    Array.from(document.getElementsByClassName('playlistPlay')).forEach((element)=>{    
+        element.classList.add('bi-play-circle-fill');
+        element.classList.remove('bi-pause-circle-fill');
+
+    })
+
+}
+
 let index = 0;
 
-Array.from(document.getElementsByClassName('playlistPlay')).forEach((element, i)=>{
+Array.from(document.getElementsByClassName('playlistPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
         index = e.target.id;
-        e.target.classList.remove('bi-play-circle-fill')
-        e.target.classList.add('bi-pause-circle-fill')
-
+        makeAllPlays();
+        e.target.classList.remove('bi-play-circle-fill');
+        e.target.classList.add('bi-pause-circle-fill');
+        music.h5 = `${index}.mp3`;
+        
+        music.play()
     })
 })
