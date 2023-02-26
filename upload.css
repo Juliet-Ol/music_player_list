@@ -30,6 +30,7 @@ body{
     height: 167px;
     align-items: center;
     margin: 30px 0;
+    cursor: pointer;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -90,6 +91,14 @@ section .details span{
     width: 0%;
     background: #6990f2;
     border-radius: inherit;
+}
+.uploaded-area {
+    max-height: 150px;
+    overflow-y: scroll;
+
+}
+.uploaded-area ::-webkit-scrollbar{
+    width: 0px;
 }
 .uploaded-area .row .content{
     display: flex;
