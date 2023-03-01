@@ -1,4 +1,4 @@
-const music = new Audio('fallingdown.mp3');
+const music = new Audio ('fallingdown.mp3');
 // music.play();
 
 
@@ -31,9 +31,17 @@ let songs = [
         songName:`SHAKIRA_BZRP_MUSIC_SESSIONS_53_FRENCH_VERSION_
          <div class="subtitle"> Shakira </div>`,
         poster:"image/matt-botsford-OKLqGsCT8qs-unsplash.jpg"
-    }
+    },
+    {
 
+        id:'5',
+        songName:`Shape_of_You_Ed_Sheeran_traduction_française_
+        <div class="subtitle"> Ed_Sheeran </div>`,
+        poster:"image/fallingdown.jpg"
+    },
 ]
+
+
 
 Array.from(document.getElementsByClassName('menu_song')).forEach((element, i)=>{
     element.getElementsByTagName('img')[0].src = songs[i].poster;
@@ -68,16 +76,68 @@ const makeAllPlays = () =>{
 
 }
 
-let index = 0;
+const makeAllBackgrounds = () =>{    
+    Array.from(document.getElementsByClassName('songItem')).forEach((element)=>{    
+        element.style.background = "rgb(105, 105, 170. 0)";
+        
 
+    })
+
+}
+
+
+let index = 0;
+let poster_master_play = document.getElementById('poster_master_play');
+let title = document.getElementById('title');
 Array.from(document.getElementsByClassName('playlistPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
         index = e.target.id;
         makeAllPlays();
         e.target.classList.remove('bi-play-circle-fill');
         e.target.classList.add('bi-pause-circle-fill');
-        music.h5 = `${index}.mp3`;
-        
-        music.play()
+        music.src = `/music/${index}.mp3`;
+        poster_master_play.src = `image/${index}.jpg`;
+        music.play();
+        let song_part = songs.filter((ele)=>{
+            return ele.id == index;
+        })
+        song_part.forEach(ele =>{
+            let {songName} = ele;
+            title.innerHTML = songName;
+        })
+        masterPlay.classList.remove('bi-play-fill');
+        masterPlay.classList.add('bi-pause-fill');
+        wave.classList.add('active2');
+        music.addEventListener('ended', ()=> {
+            masterPlay.classList.add('bi-play-fill');
+            masterPlay.classList.remove('bi-pause-fill');
+            wave.classList.remove('active2');
+
+        })
+        makeAllBackgrounds();
+        Array.from(document.getElementsByClassName('songItem'))[$(index-1)].style.background = "rgb(105, 105, 170. 0)";
     })
+})
+
+let currentStart = document.getElementById('currentStart')
+let currentEnd = document.getElementById('currentEnd')
+
+music.addEventListener('timeupdate',()=>{
+    let music_curr = music.currentTime;
+    let music_dur =  music.duration;
+
+    let min = Math.floor(music_dur/60)
+    let sec = Math.floor(music_dur%60)
+    if (sec<10) {
+        sec = `0${sec}`
+    }
+
+    currentEnd.innerText = `${min}:${sec}`
+    let min1 = Math.floor(music_curr/60)
+    let sec1 = Math.floor(music_curr%60)
+    if (sec<10) {
+        sec1 = `0${sec1}`
+    }
+
+    currentStart.innerText = `${min1}:${sec1}`
 })
