@@ -121,6 +121,11 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element)=>{
 
 let currentStart = document.getElementById('currentStart')
 let currentEnd = document.getElementById('currentEnd')
+let seek = document.getElementById('seek')
+let bar2 = document.getElementById('bar2')
+let dot = document.getElementsByClassName('dot')[0];
+
+
 
 music.addEventListener('timeupdate',()=>{
     let music_curr = music.currentTime;
@@ -140,4 +145,48 @@ music.addEventListener('timeupdate',()=>{
     }
 
     currentStart.innerText = `${min1}:${sec1}`
+
+    let progressbar = parseInt((music.currentTime/music.duration)*100)
+    seek.value = progressbar;
+    let seekbar = seek.value;
+    bar2.style.width = `${seekbar}%`;
+    dot.style.left = `${seekbar}%`;
+})
+
+seek.addEventListener('change', ()=>{
+    music.currentTime = seek.value * music.duration/100;
+})
+
+music.addEventListener('ended', ()=>{
+    masterPlay.classList.add('bi-play-fill');
+    masterPlay.classList.remove('bi-pause-fill');
+    wave.classList.remove('active2');
+})
+
+let vol_icon = document.getElementById('vol_icon')
+let vol = document.getElementById('vol')
+let vol_dot = document.getElementById('vol_dot')
+let vol_bar = document.getElementsByClassName('vol_bar')[0];
+
+vol.addEventListener('change', ()=>{
+    if (vol.value == 0) {
+        vol_icon.classList.remove('bi-volume-down-fill')
+        vol_icon.classList.add('bi-volume-mute-fill')
+        vol_icon.classList.remove('bi-volume-up-fill')
+    }
+    if (vol.value > 0) {
+        vol_icon.classList.add('bi-volume-down-fill')
+        vol_icon.classList.remove('bi-volume-mute-fill')
+        vol_icon.classList.remove('bi-volume-up-fill')
+    }
+    if (vol.value > 50) {
+        vol_icon.classList.remove('bi-volume-down-fill')
+        vol_icon.classList.remove('bi-volume-mute-fill')
+        vol_icon.classList.add('bi-volume-up-fill')
+    }
+    let vol_a = vol.value;
+    vol_bar.style.width = `${vol_a}%`;
+    vol_dot.style.left = `${vol_a}%`;
+    music.volume = vol_a/100
+
 })
